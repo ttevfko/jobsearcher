@@ -1,2 +1,4 @@
-Flask==3.0.3
-PyMuPDF==1.22.5
+Flask==3.0.3              # web çatısı
+gunicorn==21.2.0          # WSGI sunucusu (Render gunicorn ile başlatır)
+PyMuPDF==1.22.5           # PDF’ten metin çıkarmak için (fitz)
+google-search-results==2.4.2  # SerpAPI Python istemcisi
