@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>İş İlanları</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+        h2 {
+            color: #1a1a1a;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h2>İş İlanları Bulundu</h2>
+
+    {% if job_matches %}
+        <ul>
+            {% for job in job_matches %}
+                <li><a href="{{ job }}" target="_blank">{{ job }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Uygun iş ilanı bulunamadı.</p>
+    {% endif %}
+
+    <form action="/download_excel/" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="file" value="{{ filename }}">
+        <button type="submit">Excel Olarak İndir</button>
+    </form>
+
+    <br><br>
+    <a href="/upload_cv/">Yeni CV yükle</a>
+</body>
+</html>
